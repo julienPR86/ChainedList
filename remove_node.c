@@ -1,6 +1,6 @@
-#include "main.h"
+#include "chainedlist.h"
 
-t_List	*remove_node(t_List **head)
+t_List	*lst_remove_node(t_List **head)
 {
 	t_List	*cpy;
 
@@ -20,7 +20,7 @@ t_List	*remove_node(t_List **head)
 	return (*head);
 }
 
-t_List	*remove_n_node(t_List **head, unsigned int size)
+t_List	*lst_remove_n_node(t_List **head, unsigned int size)
 {
 	unsigned int	index = 0;
 
@@ -28,14 +28,14 @@ t_List	*remove_n_node(t_List **head, unsigned int size)
 		return (NULL);
 	while (index < size || size == 0)
 	{
-		if (NULL == remove_node(head))
+		if (NULL == lst_remove_node(head))
 			return (NULL);
 		index++;
 	}
 	return (*head);
 }
 
-t_List	*remove_node_at_index(t_List **head, unsigned int index)
+t_List	*lst_remove_node_at_index(t_List **head, unsigned int index)
 {
 	t_List	*cpy;
 	t_List	*save;
@@ -43,7 +43,7 @@ t_List	*remove_node_at_index(t_List **head, unsigned int index)
 
 	if (NULL == head)
 		return (NULL);
-	if (index >= get_list_length(*head))
+	if (index >= lst_get_list_length(*head))
 	{
 		printf("Index out of range\n");
 		return (NULL);
@@ -67,7 +67,7 @@ t_List	*remove_node_at_index(t_List **head, unsigned int index)
 	return (*head);
 }
 
-t_List	*remove_node_data(t_List **head, int rm_data)
+t_List	*lst_remove_node_data(t_List **head, int rm_data)
 {
 	t_List	*cpy;
 	t_List	*save;

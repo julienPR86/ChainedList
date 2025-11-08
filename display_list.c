@@ -1,6 +1,6 @@
-#include "main.h"
+#include "chainedlist.h"
 
-void	display_list(t_List *head)
+void	lst_display_list(t_List *head)
 {
 	if (NULL == head)
 	{

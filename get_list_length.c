@@ -1,6 +1,6 @@
-#include "main.h"
+#include "chainedlist.h"
 
-unsigned int	get_list_length(t_List *head)
+unsigned int	lst_get_list_length(t_List *head)
 {
 	int	size = 0;
 

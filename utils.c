@@ -1,6 +1,6 @@
-#include "main.h"
+#include "chainedlist.h"
 
-void	swap(int *a, int *b)
+void	swap_int(int *a, int *b)
 {
 	int	save;
 

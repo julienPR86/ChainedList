@@ -1,6 +1,6 @@
-#include "main.h"
+#include "chainedlist.h"
 
-t_List	*add_node(t_List **head, int data)
+t_List	*lst_add_node(t_List **head, int data)
 {
 	t_List *cpy;
 
@@ -26,7 +26,7 @@ t_List	*add_node(t_List **head, int data)
 	return (*head);
 }
 
-t_List	*add_n_node(t_List **head, int *data, unsigned int size)
+t_List	*lst_add_n_node(t_List **head, int *data, unsigned int size)
 {
 	unsigned int	index = 0;
 
@@ -34,9 +34,9 @@ t_List	*add_n_node(t_List **head, int *data, unsigned int size)
 		return (NULL);
 	while (index < size)
 	{
-		if (NULL == add_node(head, *(data + index)))
+		if (NULL == lst_add_node(head, *(data + index)))
 		{
-			remove_n_node(head, index);
+			lst_remove_n_node(head, index);
 			return (NULL);
 		}
 		index++;
@@ -44,7 +44,7 @@ t_List	*add_n_node(t_List **head, int *data, unsigned int size)
 	return (*head);
 }
 
-t_List	*add_node_at_index(t_List **head, int data, unsigned int index)
+t_List	*lst_add_node_at_index(t_List **head, int data, unsigned int index)
 {
 	t_List	*node;
 	t_List	*cpy;
@@ -52,7 +52,7 @@ t_List	*add_node_at_index(t_List **head, int data, unsigned int index)
 
 	if (NULL == head)
 		return (NULL);
-	if (index >= get_list_length(*head))
+	if (index >= lst_get_list_length(*head))
 	{
 		printf("Index out of range\n");
 		return (NULL);
