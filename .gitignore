@@ -1,5 +1,7 @@
 #ignore all objects files
 *.o
+#ignore libs
+*.a
 #ignore all executables files
 *.exe
 *.out
