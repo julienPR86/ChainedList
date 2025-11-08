@@ -13,6 +13,6 @@ clean :
 	rm -f $(OBJECTS)
 
 fclean : clean
-	rm -f $(exe)
+	rm -f $(NAME)
 
 re : fclean all
