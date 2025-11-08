@@ -4,6 +4,8 @@ OBJECTS = main.o display_list.o get_list_length.o node_data.o add_node.o remove_
 NAME = main.out
 LIB = libchainedlist.a
 
+all : $(NAME)
+
 $(NAME) : $(OBJECTS)
 	$(CC) -o $@ $^ $(CFLAGS)
 
