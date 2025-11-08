@@ -1,14 +1,14 @@
 #include "main.h"
 
-t_Node	*add_node(t_Node **head, int data)
+t_List	*add_node(t_List **head, int data)
 {
-	t_Node *cpy;
+	t_List *cpy;
 
 	if (NULL == head)
 		return (NULL);
 	if (NULL == *head)
 	{
-		*head = (t_Node *)malloc(sizeof(t_Node));
+		*head = (t_List *)malloc(sizeof(t_List));
 		if (NULL == *head)
 			return (NULL);
 		(*head)->data = data;
@@ -18,7 +18,7 @@ t_Node	*add_node(t_Node **head, int data)
 	cpy = *head;
 	while (cpy->next)
 		cpy = cpy->next;
-	cpy->next = (t_Node *)malloc(sizeof(t_Node));
+	cpy->next = (t_List *)malloc(sizeof(t_List));
 	if (NULL == cpy->next)
 		return (NULL);
 	cpy->next->data = data;
@@ -26,7 +26,7 @@ t_Node	*add_node(t_Node **head, int data)
 	return (*head);
 }
 
-t_Node	*add_n_node(t_Node **head, int *data, unsigned int size)
+t_List	*add_n_node(t_List **head, int *data, unsigned int size)
 {
 	unsigned int	index = 0;
 
@@ -44,10 +44,10 @@ t_Node	*add_n_node(t_Node **head, int *data, unsigned int size)
 	return (*head);
 }
 
-t_Node	*add_node_at_index(t_Node **head, int data, unsigned int index)
+t_List	*add_node_at_index(t_List **head, int data, unsigned int index)
 {
-	t_Node	*node;
-	t_Node	*cpy;
+	t_List	*node;
+	t_List	*cpy;
 	unsigned int	indice = 0;
 
 	if (NULL == head)
@@ -57,7 +57,7 @@ t_Node	*add_node_at_index(t_Node **head, int data, unsigned int index)
 		printf("Index out of range\n");
 		return (NULL);
 	}
-	node = (t_Node *)malloc(sizeof(t_Node));
+	node = (t_List *)malloc(sizeof(t_List));
 	node->data = data;
 	if (index == 0)
 	{

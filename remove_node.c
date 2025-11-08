@@ -1,8 +1,8 @@
 #include "main.h"
 
-t_Node	*remove_node(t_Node **head)
+t_List	*remove_node(t_List **head)
 {
-	t_Node	*cpy;
+	t_List	*cpy;
 
 	if (NULL == head || NULL == *head)
 		return (NULL);
@@ -20,7 +20,7 @@ t_Node	*remove_node(t_Node **head)
 	return (*head);
 }
 
-t_Node	*remove_n_node(t_Node **head, unsigned int size)
+t_List	*remove_n_node(t_List **head, unsigned int size)
 {
 	unsigned int	index = 0;
 
@@ -35,10 +35,10 @@ t_Node	*remove_n_node(t_Node **head, unsigned int size)
 	return (*head);
 }
 
-t_Node	*remove_node_at_index(t_Node **head, unsigned int index)
+t_List	*remove_node_at_index(t_List **head, unsigned int index)
 {
-	t_Node	*cpy;
-	t_Node	*save;
+	t_List	*cpy;
+	t_List	*save;
 	unsigned int	indice = 0;
 
 	if (NULL == head)
@@ -67,10 +67,10 @@ t_Node	*remove_node_at_index(t_Node **head, unsigned int index)
 	return (*head);
 }
 
-t_Node	*remove_node_data(t_Node **head, int rm_data)
+t_List	*remove_node_data(t_List **head, int rm_data)
 {
-	t_Node	*cpy;
-	t_Node	*save;
+	t_List	*cpy;
+	t_List	*save;
 
 	if (NULL == head || NULL == *head)
 		return (NULL);

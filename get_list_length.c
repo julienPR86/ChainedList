@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int	get_list_length(t_Node *head)
+unsigned int	get_list_length(t_List *head)
 {
 	int	size = 0;
 

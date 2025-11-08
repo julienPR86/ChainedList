@@ -1,6 +1,6 @@
 #include "main.h"
 
-void	display_list(t_Node *head)
+void	display_list(t_List *head)
 {
 	if (NULL == head)
 	{

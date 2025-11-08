@@ -1,8 +1,8 @@
 #include "main.h"
 
-int	get_data_at_index(t_Node *head, unsigned int index, int *data)
+int	get_data_at_index(t_List *head, unsigned int index, int *data)
 {
-	t_Node	*cpy;
+	t_List	*cpy;
 	unsigned int	indice = 0;
 
 	if (NULL == head)
@@ -25,9 +25,9 @@ int	get_data_at_index(t_Node *head, unsigned int index, int *data)
 	return (0);
 }
 
-t_Node	*sort_data(t_Node **head)
+t_List	*sort_data(t_List **head)
 {
-	t_Node	*cpy;
+	t_List	*cpy;
 	int		len;
 	int		index = 0;
 

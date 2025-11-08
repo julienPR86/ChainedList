@@ -2,7 +2,7 @@
 
 int	main()
 {
-	t_Node	*head = NULL;
+	t_List	*head = NULL;
 	int data_save;
 	int	data[] = {9, 17, 23, 12, 35};
 	//Adds five nodes that contains each one element of data
