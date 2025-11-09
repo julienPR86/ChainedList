@@ -1,5 +1,16 @@
 #include "chainedlist.h"
 
+int	lst_is_data_in_list(t_List *head, int data)
+{
+	while (head)
+	{
+		if (head->data == data)
+			return (1);
+		head = head->next;
+	}
+	return (0);
+}
+
 int	lst_get_data_at_index(t_List *head, unsigned int index, int *data)
 {
 	t_List	*cpy;
