@@ -17,6 +17,8 @@ unsigned int	lst_get_list_length(t_List *head);
 //Sort the list in ascending order
 //Return NULL on error
 t_List	*lst_sort_data(t_List **head);
+//Returns 1 if data is in list, 0 otherwise
+int	lst_is_data_in_list(t_List *head, int data);
 //Stock the data at index in the data pointer
 //Return -1 on error, 0 on success
 int	lst_get_data_at_index(t_List *head, unsigned int index, int *data);
