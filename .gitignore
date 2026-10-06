@@ -1,7 +1,9 @@
-#ignore all objects files
-*.o
-#ignore libs
-*.a
-#ignore all executables files
-*.exe
-*.out
+#test files
+Makefile
+test.c
+
+#test executable
+test
+
+#test object files
+objs/
