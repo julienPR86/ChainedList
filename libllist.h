@@ -1,0 +1,136 @@
+/*
+	Do:
+		#define LIBLLIST_IMPLEMENTATION 
+	to get access to the lib functions.
+	This should be done only one time !
+*/
+
+#ifndef LIBLLIST_H
+# define LIBLLIST_H
+
+# include <stdlib.h>
+
+typedef struct s_llist
+{
+	void			*data;
+	struct s_llist	*next;
+}	t_llist;
+
+/**
+ * @brief Creates a new allocated t_llist node using @a data.
+ * @return The allocated node on success, or NULL on failure.
+ */
+t_llist	*llistNew(void  *data);
+
+/**
+ * @brief Appends @a lst at the end of @a head.
+ * @return @a head on success, or NULL on failure.
+ */
+t_llist	*llistPushBack(t_llist **head, t_llist *lst);
+
+/**
+ * @brief Removes a node at the end of @a head.
+ * @warning If @a head posses only one node, sets @a *head to NULL.
+ * @return A pointer to the poped node or NULL if head is empty.
+ */
+t_llist	*llistPop(t_llist **head);
+
+/**
+ * @brief Destroys @a head and all its data using @a destroyDataFn, and sets @a head to NULL;
+ */
+void	llistDestroy(t_llist **head, void (*detroyDataFn)(void *data));
+
+/**
+ * @brief Returns the number of nodes in @a head.
+ */
+size_t	llistLength(t_llist *head);
+
+# ifdef LIBLLIST_IMPLEMENTATION
+
+t_llist	*llistNew(void *data)
+{
+	t_llist	*new;
+
+	new = malloc(sizeof(t_llist));
+	if (NULL == new)
+		return (NULL);
+	new->data = data;
+	new->next = NULL;
+	return (new);
+}
+
+t_llist	*llistPushBack(t_llist **head, t_llist *lst)
+{
+	t_llist	*cpy;
+
+	if (NULL == head || NULL == lst)
+		return (NULL);
+	if (NULL == *head)
+	{
+		*head = lst;
+		return (*head);
+	}
+	cpy = *head;
+	while (cpy->next)
+		cpy = cpy->next;
+	cpy->next = lst;
+	return (*head);
+}
+
+t_llist	*llistPop(t_llist **head)
+{
+	t_llist	*cpy;
+	t_llist	*last;
+
+	if (NULL == head || NULL == *head)
+		return (NULL);
+	cpy = *head;
+	if (NULL == cpy->next)
+	{
+		*head = NULL;
+		return (cpy);
+	}
+	while (cpy->next->next)
+		cpy = cpy->next;
+	last = cpy->next;
+	cpy->next = NULL;
+	return (last);
+}
+
+void	llistDestroy(t_llist **head, void (*detroyDataFn)(void *data))
+{
+	t_llist	*cpy;
+
+	if (NULL == head || NULL == *head)
+		return ;
+	cpy = *head;
+	while (cpy)
+	{
+		t_llist	*tmp = cpy->next;
+		
+		if (detroyDataFn)
+			detroyDataFn(cpy->data);
+		free(cpy);
+		cpy = tmp;
+	}
+	*head = NULL;
+	return ;
+}
+
+size_t	llistLength(t_llist *head)
+{
+	size_t	length = 0;
+
+	if (NULL == head)
+		return (0);
+	while (head)
+	{
+		++length;
+		head = head->next;
+	}
+	return (length);
+}
+
+# endif
+
+#endif
